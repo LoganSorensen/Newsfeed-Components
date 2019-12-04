@@ -85,6 +85,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Why You Shouldn\'t Use Lorem Ipsum',
+    date: 'Oct 9th, 2020',
+    firstParagraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum commodo ipsum, id accumsan ipsum rhoncus eget. Donec quis lobortis nulla, vel egestas mi. Duis finibus nibh mi, vel gravida tellus vehicula id. Suspendisse nec mauris odio. Mauris pharetra eleifend tellus, ut vulputate orci consectetur sed. Cras pellentesque eleifend dolor nec maximus. Suspendisse volutpat interdum ornare. Donec fringilla interdum neque, ac tempor sapien viverra a. Cras id pharetra diam. Vestibulum efficitur, arcu et fringilla viverra, nisl metus tempus urna, suscipit facilisis leo metus ut massa. Aliquam molestie, mi eu porta volutpat, mauris enim elementum lorem, ac fringilla lorem lacus vitae nulla. Vivamus vulputate odio gravida pellentesque tristique. Nunc porttitor ante in erat tincidunt, a rutrum augue maximus. `,
+
+    secondParagraph: `Etiam risus justo, porta sed turpis ut, finibus condimentum arcu. Quisque malesuada tellus non sem fermentum viverra. Praesent maximus id nibh ac aliquet. Vivamus nunc erat, sodales sed facilisis et, blandit id augue. Morbi sollicitudin ante sit amet urna scelerisque faucibus. Curabitur lacinia arcu eget diam vehicula, sed faucibus massa scelerisque. In ligula eros, posuere quis ultrices vitae, tincidunt in nulla. Praesent pellentesque nibh non quam lacinia, in malesuada ipsum mattis. Duis orci sapien, consectetur non purus in, tincidunt tincidunt lorem. Sed gravida nisi sagittis porta dignissim. Nulla semper in nibh in dapibus.`,
+
+    thirdParagraph: `Aliquam porta tortor sed suscipit condimentum. Morbi volutpat metus in ex dictum mattis. Vestibulum pharetra justo non commodo ullamcorper. Donec ultrices blandit convallis. Nunc id tincidunt est, et pharetra metus. Maecenas luctus finibus maximus. Aenean ac pharetra tortor. Pellentesque tristique pulvinar orci quis tempus.`
   }
 ];
 
@@ -112,3 +121,44 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+function createComp(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+  const article = document.createElement("div");
+  const compTitle = document.createElement("h2");
+  const compDate = document.createElement("p");
+  const p1 = document.createElement("p");
+  const p2 = document.createElement("p");
+  const p3 = document.createElement("p");
+  const expandBtn = document.createElement("span");
+
+  article.classList.add("article");
+  compDate.classList.add("date");
+  expandBtn.classList.add("expandButton");
+
+  article.appendChild(compTitle);
+  article.appendChild(compDate);
+  article.appendChild(p1);
+  article.appendChild(p2);
+  article.appendChild(p3);
+  article.appendChild(expandBtn);
+
+  compTitle.textContent = title;
+  compDate.textContent = date;
+  p1.textContent = firstParagraph;
+  p2.textContent = secondParagraph;
+  p3.textContent = thirdParagraph;
+  expandBtn.textContent = "Expand \u25bc";
+
+  expandBtn.addEventListener("click", (event) => {
+    console.log("button clicked", event.target)
+    article.classList.toggle("article-open");
+  })
+
+  return article;
+}
+
+const articles = document.querySelector(".articles");
+
+data.forEach(data => {
+  articles.appendChild(createComp(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph));
+})

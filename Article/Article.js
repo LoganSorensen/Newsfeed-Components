@@ -150,7 +150,7 @@ function createComp(title, date, firstParagraph, secondParagraph, thirdParagraph
   expandBtn.textContent = "Expand \u25bc";
 
   expandBtn.addEventListener("click", (event) => {
-    console.log("button clicked", event.target)
+    console.log("button clicked", event.target);
     article.classList.toggle("article-open");
   })
 

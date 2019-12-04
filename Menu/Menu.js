@@ -52,8 +52,8 @@ function createMenu (array) {
   menuBtn.addEventListener("click", (event) => {
     console.log("button clicked", event.target);
     menu.classList.toggle("menu--open");
+    menu.style.transition = ".4s ease";
   })
-
 
   return menu;
 }

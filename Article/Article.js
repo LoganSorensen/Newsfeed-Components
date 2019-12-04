@@ -152,6 +152,7 @@ function createComp(title, date, firstParagraph, secondParagraph, thirdParagraph
   expandBtn.addEventListener("click", (event) => {
     console.log("button clicked", event.target);
     article.classList.toggle("article-open");
+    article.style.transition = "ease 0.5s";
   })
 
   return article;

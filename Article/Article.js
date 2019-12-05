@@ -130,10 +130,12 @@ function createComp(title, date, firstParagraph, secondParagraph, thirdParagraph
   const p2 = document.createElement("p");
   const p3 = document.createElement("p");
   const expandBtn = document.createElement("span");
+  const closeBtn = document.createElement("button");
 
   article.classList.add("article");
   compDate.classList.add("date");
   expandBtn.classList.add("expandButton");
+  closeBtn.classList.add("closeButton");
 
   article.appendChild(compTitle);
   article.appendChild(compDate);
@@ -141,6 +143,9 @@ function createComp(title, date, firstParagraph, secondParagraph, thirdParagraph
   article.appendChild(p2);
   article.appendChild(p3);
   article.appendChild(expandBtn);
+  article.appendChild(closeBtn);
+  
+  
 
   compTitle.textContent = title;
   compDate.textContent = date;
@@ -148,12 +153,28 @@ function createComp(title, date, firstParagraph, secondParagraph, thirdParagraph
   p2.textContent = secondParagraph;
   p3.textContent = thirdParagraph;
   expandBtn.textContent = "Expand \u25bc";
+  closeBtn.textContent = "Delete";
 
   expandBtn.addEventListener("click", (event) => {
     console.log("button clicked", event.target);
     article.classList.toggle("article-open");
     article.style.transition = "ease 0.5s";
   })
+
+  closeBtn.addEventListener("click", () => {
+    article.style.display = "none";
+  })
+
+  // closeBtn.style.color = "white";
+  // closeBtn.style.backgroundColor = "#388e3c"
+  // closeBtn.style.borderRadius = "10px";
+  // closeBtn.style.border = "none";
+  // closeBtn.style.position = "absolute";
+  // closeBtn.style.top = "30%";
+  // closeBtn.style.right = "3%";
+  // closeBtn.style.width = "5%";
+  // closeBtn.style.height = "40px";
+  // closeBtn.style.cursor = "pointer";
 
   return article;
 }

@@ -101,6 +101,17 @@
   transform: translate(-50%);
   background-color: white;
 }
+.article .closeButton {
+  background-color: #388e3c;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  position: relative;
+  left: 93%;
+  width: 5%;
+  height: 40px;
+  cursor: pointer;
+}
 .article-open {
   height: 400px;
 }
